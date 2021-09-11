@@ -45,6 +45,13 @@ const productController = {
                 res.render('products/carrito', { packBuscado: producto });
             })
     },
+    carritoConfirm:(req, res) => {
+        db.Pack.findByPk(req.params.id)
+            .then(function (producto) {
+                res.render('products/carritoConfirm', { packBuscado: producto });
+            })
+    },
+
     carga: (req, res) => {     //create
         res.render('products/cargaProducto');
     },

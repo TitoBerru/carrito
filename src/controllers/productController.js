@@ -46,8 +46,10 @@ const productController = {
             })
     },
     carritoConfirm:(req, res) => {
+        //  res.send(producto)
         db.Pack.findByPk(req.params.id)
             .then(function (producto) {
+                // res.send(producto)
                 res.render('products/carritoConfirm', { packBuscado: producto });
             })
     },

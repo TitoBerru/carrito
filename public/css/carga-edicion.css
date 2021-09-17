@@ -150,6 +150,10 @@ body {
 .formulario_de_carga_edicion form button:focus {
 background: #d63031;
  color: #fff; 
+}
+.erroresEdit {
+    color:blanchedalmond;
+    font-weight: bold;
 }   
 
 .packUnitario {
@@ -261,7 +265,7 @@ padding: 2em;
       text-align: center;
       justify-content: center;
       align-items: center;
-  } 
+    } 
     .sectionThreeFooter{
    justify-self: center;
    
@@ -275,6 +279,6 @@ padding: 2em;
    .mainFooter img {
     width: 8vw;
     height: 8vw;
-}
-  /* termina el footer */
+    }
+ 
 }

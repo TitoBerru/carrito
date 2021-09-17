@@ -15,5 +15,5 @@ window.addEventListener('load', function(){                      //con esto le p
       
     });
 
-    
+    document.querySelector("pack").style.display ="true"
 })

@@ -32,7 +32,7 @@
             <div class="carrito-servicios">
                 <h4 class="carrito-serad">Servicios Adicionales</h4>
                 <ul type=none>
-                    <li><input type="checkbox"><label class="carrito-tipo Traslado"> Traslado en Día Feriado </label></li>
+                    <li><input type="checkbox"><label class="carrito-tipo Traslado"> Traslado en Día Feriado </label> <br></li>
                     <li><input type="checkbox"><label class="carrito-tipo Asistente"> Asistente Adicional </label></li>
                     <li><input type="checkbox"><label class="carrito-tipo Embalaje"> Servicio de Embalaje </label></li>
                     <li><input type="checkbox"><label class="carrito-tipo Cajas"> Variedad en Cajas</label></li>
@@ -56,11 +56,14 @@
                     <h3>Precio Total con Servicios: $23600</h3>
                     <!-- <a href="#" class="detalle">Mis servicios</a> -->
                 </div>
+                <% if (locals.isLogged) { %>
                 <button class="carrito-ok pack"> <a href="/products/carritoConfirm/<%=packBuscado.id%>">OK quiero PACK
                     <span class="icon"><img width="25" height="25" src="/img/hecho-garrapata.png"
                             alt='Imagen de tilde'></img></span></a>
                 </button>
-
+                <% } else { %>
+    <br>               <h5>Por favor <a href="/users/login">Iniciar Sesion</a> para poder continuar en su carrito de compras</h5>
+                 <% } %>
                 <button class="carrito-volver">
                     <a href="/products/producto">
                     VOLVER

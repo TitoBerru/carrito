@@ -10,22 +10,21 @@ function servicio_adicionalData(sequelize,DataTypes){
             allowNull:false,
             autoIncrement: true
         },
+        trasladoDiaFeriado: {type: DataTypes.DECIMAL(20)},
+
+        asistente: {type: DataTypes.DECIMAL(20)},
+
+        embalaje: {type: DataTypes.DECIMAL(20)},
 
         cajas: {type: DataTypes.DECIMAL(20)},
+
+        adhesivo: {type: DataTypes.DECIMAL(20)},
 
         gomaEspuma: {type: DataTypes.DECIMAL(20)},
 
         depositoTemporal: {type: DataTypes.DECIMAL(20)},
 
-        embalaje: {type: DataTypes.DECIMAL(20)},
-
-        adhesivo: {type: DataTypes.DECIMAL(20)},
-
-        depositoPermanente: {type: DataTypes.DECIMAL(20)},
-
-        asistente: {type: DataTypes.DECIMAL(20)},
-
-        trasladoDiaFeriado: {type: DataTypes.DECIMAL(20)},
+        depositoPermanente: {type: DataTypes.DECIMAL(20)},       
 
         pack_id: {type: DataTypes.INTEGER(11).UNSIGNED},
 

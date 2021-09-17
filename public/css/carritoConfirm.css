@@ -4,7 +4,7 @@
     border-radius: 6px;
     color: #fff;
     font-weight: bold;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 .product-details {
@@ -64,7 +64,7 @@ label.radio input:checked+span {
 
 .credit-inputs {
     background: rgb(102, 102, 221);
-    color: #fff !important;
+    color: black !important;
     border-color: rgb(102, 102, 221)
 }
 
@@ -105,5 +105,8 @@ label.radio input:checked+span {
     font-size: 11px
 }
 #pack{
+    display:none;
+}
+#traslado2{
     display:true;
 }

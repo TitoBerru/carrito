@@ -4,34 +4,37 @@ const { send } = require('process');
 const { localsName } = require('ejs');
 
 const productController = {
-
+    
     //Para mostrar todo el listado de productos
-    // listado: (req, res) => {
-    //     db.Pack.findAll({ include: [{ association: 'Servicio_adicional' }] }, {
+    // listado: (req,res) => {
+    //     db.Pack.findAll({include:[{association:'servicio_adicional'}]},{
     //         order: [
-    //             ['numeroPack', 'ASC']
+    //             ['numeroPack','ASC']
+                
     //         ]
     //     })
-    //         .then(function (productos) {
-    //             let precioSer = [];
-    //             for (producto of productos) {
-    //                 let objaux = {
-    //                     cajas: producto.servicio_adicional[0].cajas,
-    //                     gomaEspuma: producto.servicio_adicional[0].gomaEspuma
-    //                 }
-    //                 precioSer.push(objaux);
-    //             }
-    //             res.render('products/producto', { products: productos, precioSer });
-    //             /* return res.send(precioSer) */
-    //         }
-    //         )
-    // },
+    //              then(function(productos){
 
+    //                 let precioSer = [];
+                
+    //                 for (producto of productos){
+    //                     let objaux = {
+    //                         cajas: producto.servicio_adicional[0].cajas,
+    //                         gomaEspuma: producto.servicio_adicional[0].gomaEspuma
+    //                 }
+    //             precioSer.push(objaux);
+    //             }
+    //             res.render ('products/producto',{products:productos});
+    //         // res.render ('products/producto',{products:productos}, {precioSer});
+    //     //    return res.send({productos}) 
+    //         }
+    //     )
+    // },
     listado: (req,res) => {
         db.Pack.findAll({
             order: [
                 ['numeroPack','ASC']
-
+                
             ]
         })
             .then(function(productos){
@@ -39,32 +42,57 @@ const productController = {
             }
         )},
 
-    carrito: (req, res) => {
-        db.Pack.findByPk(req.params.id)
-            .then(function (producto) {
-                res.render('products/carrito', { packBuscado: producto });
-            })
+    carrito: (req,res) => {
+        db.Pack.findAll({include:[{association:'servicio_adicional'}]},{
+            order: [
+                ['numeroPack','ASC']
+                
+            ]
+        })
+            .then(function(productos){
+
+                let precioSer = [];
+                
+                for (producto of productos){
+                    let objaux = {
+                        trasladoDiaFeriado: producto.servicio_adicional[0].trasladoDiaFeriado,
+                        asistente: producto.servicio_adicional[0].asistente,
+                        embalaje: producto.servicio_adicional[0].embalaje,
+                        cajas: producto.servicio_adicional[0].cajas,
+                        adhesivo: producto.servicio_adicional[0].adhesivo,
+                        gomaEspuma: producto.servicio_adicional[0].gomaEspuma,
+                        depositoTemporal: producto.servicio_adicional[0].depositoTemporal,
+                        pack_id: producto.servicio_adicional[0].pack_id,
+                        fecha_actualizacion: producto.servicio_adicional[0].fecha_actualizacion,
+                    }
+                precioSer.push(objaux);
+                }
+                let packBuscado = productos[req.params.id-1]
+                res.render('products/carritoConfirm',{packBuscado});
+            // res.render ('products/producto',{products:productos}, {precioSer});
+                //  res.send({packBuscado}) 
+            }
+        )
+    
     },
-    carritoConfirm:(req, res) => {
-        //  res.send(producto)
+    carrito_ok: (req,res) => {
         db.Pack.findByPk(req.params.id)
-            .then(function (producto) {
+            .then(function(producto){
+                res.render('products/carrito',{packBuscado:producto});
                 // res.send(producto)
-                res.render('products/carritoConfirm', { packBuscado: producto });
             })
     },
-
-    carga: (req, res) => {     //create
-        res.render('products/cargaProducto');
+    carga: (req,res) => {     //create
+        res.render ('products/cargaProducto');
     },
 
-    edicion: (req, res) => {
+    edicion:  (req,res) => {
         db.Pack.findByPk(req.params.id)
-            .then(function (producto) {
-
-                res.render('products/edicionProducto', { productoEncontrado: producto });
+            .then(function(producto){
+               
+                res.render('products/edicionProducto',{productoEncontrado:producto});
             })
-        // *********  Dejo la forma de editar con JSON por si implementamos forma OFFLINE *****
+      // *********  Dejo la forma de editar con JSON por si implementamos forma OFFLINE *****
         // let idProductoEditado = req.params;	
         // for(let i=0;i<products.length;i++){
         //     if (products[i].id==idProductoEditado.id){
@@ -73,83 +101,83 @@ const productController = {
         //     }  
         // }  
         // res.render('products/edicionProducto',{productoEncontrado: productoEncontrado});
-
+     
     },
 
-    actualizar: (req, res) => {
+    actualizar: (req,res) => { 
         // res.send(req.file.filename)
         // if (req.file == null){
         //       products[i].imagen = products[i].imagen;
         //                 }else {
         //                  products[i].imagen =req.file.filename;
         //                }
-
-
+                    
+    
         // res.send(req.file.filename)  
-        if (req.file == null) {
+        if (req.file == null){
             var nombreImagen = 'avatar.jpg'
-        } else {
+            }else {
             var nombreImagen = req.file.filename
-        }
+            }
 
         db.Pack.update({
-
-            numeroPack: req.body.numeroPack,  //nombre del campo en BD: "name" del Form
-            radio: req.body.radio,
-            precio: req.body.precio,
-            superficie: req.body.superficie,
-            imagen: nombreImagen
-
-        }, {
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(function (update) {
-
-                res.redirect('/products/producto');
-            })
+            
+                numeroPack:req.body.numeroPack,  //nombre del campo en BD: "name" del Form
+                radio:req.body.radio,
+                precio:req.body.precio,
+                superficie:req.body.superficie,
+                imagen:nombreImagen
+                      
+                }, {
+                    where:{
+                    id: req.params.id
+                    }
+                })
+                .then(function(update){
+               
+                    res.redirect('/products/producto');
+                })
     },
+    
+        // res.render('products/producto', {products:Pack})
 
-    // res.render('products/producto', {products:Pack})
-
-    // let idParaCambiar = req.params.id;
-    // let ProductoAModificar = req.body;    
-    // for(let i=0;i<products.length;i++){
-    //     if (products[i].id == idParaCambiar){
-    //   	    products[i].numeroDePack = ProductoAModificar.numeroDePack;
-    //   	    products[i].radio = ProductoAModificar.radio;
-    //         products[i].superficie = ProductoAModificar.superficie;
-    //         products[i].precio = ProductoAModificar.precio;
-    //         products[i].superficie = ProductoAModificar.superficie;
-    //         if (req.file == null){
-    //                 products[i].imagen = products[i].imagen;
-    //             }else {
-    //                 products[i].imagen =req.file.filename;
-    //             }
-    //         break;  
-    //     }       
-    // }
-    //  fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
-    //  res.render('products/producto', {products:products,users:users})
+        // let idParaCambiar = req.params.id;
+        // let ProductoAModificar = req.body;    
+		// for(let i=0;i<products.length;i++){
+	    //     if (products[i].id == idParaCambiar){
+		//   	    products[i].numeroDePack = ProductoAModificar.numeroDePack;
+		//   	    products[i].radio = ProductoAModificar.radio;
+        //         products[i].superficie = ProductoAModificar.superficie;
+        //         products[i].precio = ProductoAModificar.precio;
+        //         products[i].superficie = ProductoAModificar.superficie;
+        //         if (req.file == null){
+        //                 products[i].imagen = products[i].imagen;
+        //             }else {
+        //                 products[i].imagen =req.file.filename;
+        //             }
+		//         break;  
+        //     }       
+        // }
+		//  fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
+		//  res.render('products/producto', {products:products,users:users})
 
     store: (req, res) => {
-        if (req.file == null) {
+            if (req.file == null){
             var nombreImagen = 'avatar.jpg'
-        } else {
+            }else {
             var nombreImagen = req.file.filename
-        }
-        db.Pack.create({
-            numeroPack: req.body.numeroDePack,
-            radio: req.body.radio,
-            imagen: nombreImagen,
-            superficie: req.body.superficie,
-            precio: req.body.precio
-        })
-            .then(function (create) {
-
-                res.redirect('/products/producto');
+            }
+            db.Pack.create({
+                numeroPack: req.body.numeroDePack,
+                radio: req.body.radio,
+                imagen: nombreImagen,
+                superficie: req.body.superficie,
+                precio: req.body.precio
             })
+    .then(function(create){
+                   
+                        res.redirect('/products/producto');
+                    })
 
 
         // if (req.file == null){
@@ -157,41 +185,41 @@ const productController = {
         // }else {
         //     var nombreImagen = req.file.filename
         // }
-
-        // let idNuevo = products[products.length-1].id + 1;
-        // let nuevoObjeto =  Object.assign({id: idNuevo},req.body,{imagen:nombreImagen});
-        // products.push(nuevoObjeto);
-        // fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
+       
+		// let idNuevo = products[products.length-1].id + 1;
+		// let nuevoObjeto =  Object.assign({id: idNuevo},req.body,{imagen:nombreImagen});
+		// products.push(nuevoObjeto);
+   	    // fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
         //     res.render('products/producto', {products:products,users:users})
-    },
+                },
 
     destroy: (req, res) => {
         db.Pack.destroy({
-            where: {
-                id: req.params.id
+            where : {
+                id:req.params.id
             }
         })
-            .then(function (update) {
-
-                res.redirect('/products/producto');
-            })
+        .then(function(update){
+               
+            res.redirect('/products/producto');
+        })
     }
 
-    //*** */ ESTO LO DEJO POR SI HACEMOS EL OFFLINE ***
-    // let idProducto = req.params.id;	
-    // for(let i=0;i<products.length;i++){
-    // 	if (products[i].id==idProducto){
-    // 		var nombreImagen=products[i].imagen;
-    // 		products.splice(i,1);
-    // 		break;
-    // 	}
-    // }
-
-    // fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
-    // fs.unlinkSync(path.join(__dirname,'../../public/img/camiones/'+nombreImagen));
-    // res.render('index');
-    // }
+        //*** */ ESTO LO DEJO POR SI HACEMOS EL OFFLINE ***
+		// let idProducto = req.params.id;	
+		// for(let i=0;i<products.length;i++){
+		// 	if (products[i].id==idProducto){
+		// 		var nombreImagen=products[i].imagen;
+		// 		products.splice(i,1);
+		// 		break;
+		// 	}
+		// }
+		
+	    // fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
+		// fs.unlinkSync(path.join(__dirname,'../../public/img/camiones/'+nombreImagen));
+		// res.render('index');
+		// }
 
 };
 
-module.exports = productController;
+module.exports = productController; 

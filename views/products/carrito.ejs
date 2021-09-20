@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/carritoNormalize.css">
     <link rel="stylesheet" href="/css/fuentes.css">
     <link rel="stylesheet" href="/css/carritoStyles.css">
+    <!-- Enlace con js en el Front-->
+    <script src="/scripts/js_carritoValues.js"></script>
 </head>
 
 <body>
@@ -31,22 +33,27 @@
                     <!-- <span><a href="/products/carrito"><img src="/img/carrito1.png" alt="" class="btn-precio "></a></span>   -->
 
                 </div>
+                
                 <div class="carrito-servicios">
                     <h4 class="carrito-serad">Servicios Adicionales</h4>
                     <ul type=none>
-                        <li><input type="checkbox"><label class="carrito-tipo Traslado"> Traslado en Día Feriado
-                            </label> <br></li>
-                        <li><input type="checkbox"><label class="carrito-tipo Asistente"> Asistente Adicional </label>
+
+                        <li><input type="checkbox" class="traslado"><label class="carrito-tipo"> Traslado en Día Feriado
+                            </label> <br> </li>
+                        <li><input type="checkbox" class="asistente"><label class="carrito-tipo asistente"> Asistente
+                                Adicional
+                            </label>
                         </li>
-                        <li><input type="checkbox"><label class="carrito-tipo Embalaje"> Servicio de Embalaje </label>
+                        <li><input type="checkbox" class="embalaje"><label class="carrito-tipo embalaje"> Servicio de Embalaje </label>
                         </li>
-                        <li><input type="checkbox"><label class="carrito-tipo Cajas"> Variedad en Cajas</label></li>
-                        <li><input type="checkbox"><label class="carrito-tipo Cintas"> Cintas adhesivas </label></li>
-                        <li><input type="checkbox"><label class="carrito-tipo Espuma"> Goma espuma </label></li>
-                        <li><input type="checkbox"><label class="carrito-tipo DepositoTemp"> Depósito Temporal </label>
+                        <li><input type="checkbox" class="cajas"><label class="carrito-tipo cajas"> Variedad en Cajas</label></li>
+                        <li><input type="checkbox" class="cintas"><label class="carrito-tipo cintas"> Cintas adhesivas </label></li>
+                        <li><input type="checkbox" class="espuma"><label class="carrito-tipo espuma"> Goma espuma </label></li>
+                        <li><input type="checkbox" class="depoT"><label class="carrito-tipo depositoTemp"> Depósito Temporal </label>
                         </li>
-                        <li><input type="checkbox"><label class="carrito-tipo DepositoPerm"> Depósito Permantente
+                        <li><input type="checkbox" class="depoP"><label class="carrito-tipo depositoPerm"> Depósito Permantente
                             </label></li>
+
                     </ul>
                 </div>
 
@@ -63,23 +70,22 @@
                         <h3>Precio Total con Servicios: $23600</h3>
                         <!-- <a href="#" class="detalle">Mis servicios</a> -->
                     </div>
-                    <% if (locals.isLogged) { %>
-                        <button class="carrito-ok pack"> <a href="/products/carritoConfirm/<%=packBuscado.id%>">OK
+
+
+                    <!-- Boton solo de prueba -->
+
+        <button class="carrito-ok pack buttonValidar"> <a href="/products/carritoConfirm/<%= packBuscado.id %> "> OK
                                 quiero PACK
                                 <span class="icon"><img width="25" height="25" src="/img/hecho-garrapata.png"
                                         alt='Imagen de tilde'></img></span></a>
                         </button>
-                        <% } else { %>
-                            <br>
-                            <h5>Por favor <a href="/users/login">Iniciar Sesion</a> para poder continuar en su carrito
-                                de compras</h5>
-                            <% } %>
-                                <button class="carrito-volver">
-                                    <a href="/products/producto">
-                                        VOLVER
-                                        <span class="icon"><img width="25" height="25" src='/img/arriba.png'
-                                                alt='Imagen de flecha hacia arriba'></img></span></a>
-                                </button>
+
+
+                    <!-- Termina la prueba -->
+
+                  
+
+                    
 
                                 <!-- <div class="carrito">
                     <img width="35" height="35" src='/img/carrito-de-compras.png' alt='Imagen de ahopping cart'></img>
@@ -87,7 +93,6 @@
 
 
                 </div>
-
             </div>
         </main>
 
@@ -100,7 +105,7 @@
           <div class="rrss"><img src="/img/linkedin.png" class="logoFacebook"/></div>  
         </div>  
       </footer> -->
-            <script src="/scripts/carritoValues.js"></script>
+            <script src="/scripts/js_CarritoValues.js"></script>
 </body>
 
 </html>

@@ -1,8 +1,8 @@
 const db = require('../database/models');
-
 const { send } = require('process');
 const { localsName } = require('ejs');
-
+const { body } = require('express-validator');
+const { time, timeStamp, timeLog } = require('console');
 const productController = {
 
     //Para mostrar todo el listado de productos
@@ -43,40 +43,45 @@ const productController = {
             )
     },
 
-    carrito: (req, res) => {
+    carrito:  (req, res) => {
         db.Pack.findAll({ include: [{ association: 'servicio_adicional' }] }, {
             order: [
                 ['numeroPack', 'ASC']
 
             ]
-        })
-            .then(function (productos) {
+        }).then(function (productos) {
 
-                let precioSer = [];
+            let precioSer = [];
 
-                for (producto of productos) {
-                    let objaux = {
-                        trasladoDiaFeriado: producto.servicio_adicional[0].trasladoDiaFeriado,
-                        asistente: producto.servicio_adicional[0].asistente,
-                        embalaje: producto.servicio_adicional[0].embalaje,
-                        cajas: producto.servicio_adicional[0].cajas,
-                        adhesivo: producto.servicio_adicional[0].adhesivo,
-                        gomaEspuma: producto.servicio_adicional[0].gomaEspuma,
-                        depositoTemporal: producto.servicio_adicional[0].depositoTemporal,
-                        pack_id: producto.servicio_adicional[0].pack_id,
-                        fecha_actualizacion: producto.servicio_adicional[0].fecha_actualizacion,
-                    }
-                    precioSer.push(objaux);
+            for (producto of productos) {
+                let objaux = {
+                    trasladoDiaFeriado: producto.servicio_adicional[0].trasladoDiaFeriado,
+                    asistente: producto.servicio_adicional[0].asistente,
+                    embalaje: producto.servicio_adicional[0].embalaje,
+                    cajas: producto.servicio_adicional[0].cajas,
+                    adhesivo: producto.servicio_adicional[0].adhesivo,
+                    gomaEspuma: producto.servicio_adicional[0].gomaEspuma,
+                    depositoTemporal: producto.servicio_adicional[0].depositoTemporal,
+                    pack_id: producto.servicio_adicional[0].pack_id,
+                    fecha_actualizacion: producto.servicio_adicional[0].fecha_actualizacion,
                 }
-                let packBuscado = productos[req.params.id - 1]
-                res.render('products/carritoConfirm', { packBuscado });
+                    precioSer.push(objaux);
+            }
+                // //Estas 2 lineas funcionan ok, ahora las comento para ver q trae el form
+            let packBuscado = productos[req.params.id - 1] ;
+            res.send(req.params.id);
+                // res.render('products/carritoConfirm', { packBuscado });
+                // // Hasta aca funciona! 
+
+                // res.send(productos)
+                // console.log(objaux.asistente)
                 // res.render ('products/producto',{products:productos}, {precioSer});
                 //  res.send({packBuscado}) 
-            }
-            )
+                //   res.send({idServices}) 
+        })
+    },    
 
-    },
-    carrito_ok: (req, res) => {
+    carrito_ok: async (req, res) => {
         db.Pack.findByPk(req.params.id)
             .then(function (producto) {
                 res.render('products/carrito', { packBuscado: producto });
@@ -204,22 +209,44 @@ const productController = {
 
                 res.redirect('/products/producto');
             })
+    },
+
+    preCompra: async (req, res) => {
+        // res.send(req.body)
+        // var serviciosSolicitados = req.body;
+    //    console.log(serviciosSolicitados);
+        //  let datosGeneral = req.params.id;
+         let datosUsuario = req.session.userLogged;
+
+         let services = await db.Seleccion.create({
+            trasladoDiaFeriado: req.body.traslado,
+            cajas: req.body.cajas,
+            gomaEspuma: req.body.espuma,
+            depositoTemporario : req.body.depoT,
+            embalaje : req.body.embalaje,
+            adhesivo : req.body.cintas,
+            depositoPermanente: req.body.depoP,
+            asistente:req.body.asistente,
+            trasladoDiaFeriado: req.body.traslado            
+        });
+        let idServices = await db.Usuario_producto.create({
+            usuario_id: datosUsuario.id,
+            servicio_adicional_id: 1,
+            fechaVenta: 2021/9/20,
+            vendido:0,
+            precioFinal: 1000,
+            seleccion_id: services.id          
+        });
+        
+        console.log("El numero de serie de esta nueva seleccion es: " + JSON.stringify(idServices));
+        console.log("LOs datos de usuario que hay almacenados son: " + JSON.stringify(datosUsuario));
+        // console.log("Los datos generales deberian ser" + JSON.stringify(datosGeneral));
+             
+           res.render('/products/carritoConfirm')
+           
+            // Tomar el dato con valor.id --> En este ejemplo seria s.id
+
     }
-
-    //*** */ ESTO LO DEJO POR SI HACEMOS EL OFFLINE ***
-    // let idProducto = req.params.id;	
-    // for(let i=0;i<products.length;i++){
-    // 	if (products[i].id==idProducto){
-    // 		var nombreImagen=products[i].imagen;
-    // 		products.splice(i,1);
-    // 		break;
-    // 	}
-    // }
-
-    // fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
-    // fs.unlinkSync(path.join(__dirname,'../../public/img/camiones/'+nombreImagen));
-    // res.render('index');
-    // }
 
 };
 

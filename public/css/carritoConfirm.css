@@ -105,7 +105,7 @@ label.radio input:checked+span {
     font-size: 11px
 }
 #pack{
-    display:none;
+    display:true;
 }
 #traslado2{
     display:true;

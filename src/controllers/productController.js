@@ -43,13 +43,13 @@ const productController = {
             )
     },
 
-    carrito:  (req, res) => {
+    carrito: async (req, res) => {
         db.Pack.findAll({ include: [{ association: 'servicio_adicional' }] }, {
             order: [
-                ['numeroPack', 'ASC']
-
-            ]
-        }).then(function (productos) {
+                        ['numeroPack', 'ASC']
+                    ]
+        })
+            .then(function (productos) {
 
             let precioSer = [];
 
@@ -69,8 +69,8 @@ const productController = {
             }
                 // //Estas 2 lineas funcionan ok, ahora las comento para ver q trae el form
             let packBuscado = productos[req.params.id - 1] ;
-            res.send(req.params.id);
-                // res.render('products/carritoConfirm', { packBuscado });
+            //res.send(req.params.id); Este dato Llega!!!!!!
+                res.render('products/carritoConfirm', { packBuscado });
                 // // Hasta aca funciona! 
 
                 // res.send(productos)
@@ -79,14 +79,37 @@ const productController = {
                 //  res.send({packBuscado}) 
                 //   res.send({idServices}) 
         })
+            // .then(function(req, res){
+            //     db.Usuario_producto.findAll(usuario_producto)({
+            //         order: [
+            //                 ['numeroPack', 'ASC']
+            //                 ]
+            //     })
+            //     return console.log(usuario_producto.id)
+
+            // })
+        // .then(function(){
+        //     db.Usuario_producto.update({
+
+        //     servicio_adicional_id: req.params.id
+        // }, {
+        //     where: {
+        //         id: req.params.id
+        //     }
+        // })
     },    
 
-    carrito_ok: async (req, res) => {
+    carrito_ok: (req, res) => {
         db.Pack.findByPk(req.params.id)
-            .then(function (producto) {
+        // aca deberia buscar el id del pack e incluirlo en la BD
+        
+            .then (function (producto) {
                 res.render('products/carrito', { packBuscado: producto });
                 // res.send(producto)
             })
+            // await(function(){
+            //     console.log("llego")
+            // })
     },
     carga: (req, res) => {     //create
         res.render('products/cargaProducto');

@@ -1,7 +1,7 @@
 validacionesFront = window.addEventListener('load', function () {
     let btnCompra = document.querySelector('.buttonValidar');
     btnCompra.addEventListener('click', function () {
-        // TODO ESTO FUNCIONA, LO COMENTO PARA PROBAR EL ID DEL PACK Y USUARIO
+    
         var serviciosSolicitados = {
             traslado: false,
             asistente: false,
@@ -59,10 +59,10 @@ validacionesFront = window.addEventListener('load', function () {
                 return response.json()
             })
             .then(function (info) {
-                console.log(info)
+                // console.log(info)
             })
             .catch(function (e) {
-                console.log(e);
+                // console.log(e);
             })
     });
 })

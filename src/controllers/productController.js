@@ -265,7 +265,7 @@ const productController = {
         console.log("LOs datos de usuario que hay almacenados son: " + JSON.stringify(datosUsuario));
         // console.log("Los datos generales deberian ser" + JSON.stringify(datosGeneral));
              
-           res.render('/products/carritoConfirm')
+           res.redirect('/products/carritoConfirm')
            
             // Tomar el dato con valor.id --> En este ejemplo seria s.id
 

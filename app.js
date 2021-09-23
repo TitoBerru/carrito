@@ -36,10 +36,14 @@ app.set('views', path.join(__dirname, '/views'));
 const mainRoutes = require('./src/routes/mainRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
+//**Rutas de APiS */
+const ApiSeleccionRoutes = require ('./src/routes/ApiSeleccionRoutes');
+
 
 app.use('/', mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+app.use('/apis', ApiSeleccionRoutes);
 
 app.listen(process.env.PORT || 3000, function () {
     console.log('Servidor corriendo en el puerto 3000');

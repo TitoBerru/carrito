@@ -1,19 +1,9 @@
 const db = require('../database/models');
-const {
-    send
-} = require('process');
-const {
-    localsName
-} = require('ejs');
-const {
-    body
-} = require('express-validator');
-const {
-    time,
-    timeStamp,
-    timeLog,
-    timeEnd
-} = require('console');
+const { send } = require('process');
+const { localsName } = require('ejs');
+const { body } = require('express-validator');
+const { time, timeStamp,timeLog,timeEnd } = require('console');
+let nroServicio;
 const productController = {
 
     listado: (req, res) => {
@@ -193,12 +183,25 @@ const productController = {
             servicio_adicional_id: idServiciosSolicitado.id,
             fechaVenta: timeLog,
             vendido: 0,
-            precioFinal: 1000,
+            precioFinal: 0,
             seleccion_id: services.id
         });
 
         console.log("El numero de serie de esta nueva seleccion es: " + JSON.stringify(idServices));
+        nroServicio = idServices.id
         console.log("LOs datos de usuario que hay almacenados son: " + JSON.stringify(datosUsuario));
+        console.log("El numero de pedido es: " + JSON.stringify(nroServicio));
+    },
+    compra:(req,res) => {
+        console.log(nroServicio)
+        db.Usuario_producto.update({
+
+                vendido : 1,
+            }, {
+                where: {
+                    id: nroServicio
+                }
+            })
     }
 };
 

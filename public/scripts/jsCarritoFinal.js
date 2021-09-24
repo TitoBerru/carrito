@@ -18,7 +18,7 @@ renderizarServicios = window.addEventListener('load', function () {
         let traslado = document.querySelector('#traslado');
         traslado.style.display = "none";
       } else {
-        valorFinalCarrito = +valorTraslado;
+        valorFinalCarrito += valorTraslado;
       }
 
       if (data.data[0].asistente != 1) {
@@ -75,5 +75,5 @@ renderizarServicios = window.addEventListener('load', function () {
     .catch(function (e) {
       console.log(e)
     })
-
+    
 })

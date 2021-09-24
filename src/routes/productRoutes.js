@@ -37,6 +37,9 @@ router.get('/carritoConfirm/:id',productController.carrito);
 router.get('/preCompra',productController.preCompra);
 router.post('/preCompra', productController.preCompra);
 
+//Ruta de compra
+router.post('/compra', productController.compra);
+
 
 /*** EDITAR PRODUCTO ***/
 router.get('/edicionProducto/:id?', productController.edicion);

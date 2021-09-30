@@ -5,17 +5,25 @@ module.exports = {
 
     lista: (req,res) => {
 
-        db.Pack.findAll({include:[{association:'servicio_adicional'}]},{
+        // db.Pack.findAll({include:[{association:'servicio_adicional'}]},{
+        //     order: [
+        //         ['numeroPack','ASC']
+                
+        //     ]
+        
+        // })
+        db.Pack.findAll({
             order: [
                 ['numeroPack','ASC']
                 
             ]
+        
         })
         .then(pack => {
-            return res.status(200).json ({
+            return res.send({
                 data: pack,
-                total: pack.length,
-                status: 200
+                // total: pack.length,
+                // status: 200
             })
         })
         .catch(function (e){

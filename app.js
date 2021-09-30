@@ -45,7 +45,8 @@ const ApiSeleccionRoutes = require ('./src/routes/ApiSeleccionRoutes');
 const APIservicioRoutes = require ('./src/routes/APIservicioAdicionalRoutes');
 const APIusuarioRoutes = require ('./src/routes/APIusuarioRoutes');
 const APIusuarioProductoRoutes = require ('./src/routes/APIusuarioProductoRoutes');
-const APIpackRoutes = require ('./src/routes/APIpackRoutes')
+const APIpackRoutes = require ('./src/routes/APIpackRoutes');
+const ApiVentas = require('./src/routes/ApiVentasRoutes');
 
 
 
@@ -59,6 +60,8 @@ app.use('/servicio',APIservicioRoutes);
 app.use('/busquedaUsuario', APIusuarioRoutes);
 app.use('/busquedaVenta', APIusuarioProductoRoutes);
 app.use('/busquedaProducto', APIpackRoutes);
+app.use('/ventas', ApiVentas);
+
 
 
 

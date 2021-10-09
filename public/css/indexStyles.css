@@ -3,23 +3,19 @@
 }
 
 body {
-    font-family: Montserrat-Light,quicksand, sans-serif;
-    /* background-color: white; */
+  font-family: Montserrat-Light,quicksand, sans-serif;
   font-size: 16px;
-  /* margin: 5px; */
   padding: 1px;
   background-color: #D3D2BE;
-  background: url(../img/imagen-home.jpeg); 
+  background: url(../img/imagenprincipal.jpg); 
     color:#000000;
+  background-repeat: no-repeat;  
+  background-size: 100vmax;
 }
 
 @font-face {
     font-family: Montserrat-Light;
     src: url(/fuentes/Montserrat-Light.ttf) format('truetype');
-}
-
-h2{
-    text-align: center;
 }
 .contenedor01{
     display: flex;
@@ -74,18 +70,21 @@ h2{
 }
 
 .telefono{
+    
    color: transparent;
    align-self:center;
 }
 .contenedor02{
-    display:flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: center;
+    
+    display:grid;
+    padding:  0 0 4vh 0 ;
 }
 .conjunto{
-    padding-right: 10em;
-    margin:0;
+   padding: 10px ;
+    display: flex;
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .invitar{
@@ -93,12 +92,10 @@ h2{
 }
 
 .expertos{
-    margin:0;
-    width:15px;
-    align-content: center;
-    color:#ffffff;
-    font-size: 1.5em;
-    padding-right: em;
+    margin:auto;
+    color:#065848;
+    font-size: 2.5em;
+    padding-left: 6em;
 }
 .footer img{
     width: 35px;
@@ -202,6 +199,7 @@ h2{
     .video{
         align-content: center;
         order:-1;
+        
     }
 }
 

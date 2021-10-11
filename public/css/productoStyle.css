@@ -2,6 +2,16 @@
 * {
     box-sizing: border-box;   
   }
+  body {
+  font-family: Montserrat-Light,quicksand, sans-serif;
+  font-size: 16px;
+  padding: 1px;
+  background-color: #D3D2BE;
+  background: url(../img/imagenprincipal.jpg); 
+    color:#000000;
+  background-repeat: no-repeat;  
+  background-size: 100vmax;
+}
   /* -------------------HEADER------------------ */
   .contenedor01{
     display: flex;
@@ -96,20 +106,13 @@
   transform:scale(1)
 }
   /* ----------------------MAIN---------------------- */
-  body {
-    font-family: Montserrat-Light,quicksand, sans-serif;
-    font-size: 16px;
-    margin: 5px;
-    padding: 1px;
-    background-color: #D3D2BE;
-    background: url(../img/imagen-home.jpeg);   
-  }
+  
   .container {
     width: 90%;
     margin: auto;
     justify-content: center; 
-  box-shadow: 0 0 20px 0 rgb(255 255 255 / 30%);
-  background: rgba(0,0,0,.4);
+  /* box-shadow: 0 0 20px 0 rgb(255 255 255 / 30%);
+  background: rgba(0,0,0,.4); */
   padding: 1em;
   }
   /* Packs */
@@ -125,7 +128,7 @@
       text-align:left;
       padding: 10px;
   }
-  .button {
+  /* .button {
     display: grid;
     height: 50px;
     padding: 17px 0 0 0;
@@ -142,7 +145,7 @@
     text-decoration: none;
     color: #3090C7;
     text-shadow: 0px 1px 2px #62C2F9;
-  }
+  } */
   .btn-precio {
     width: 35px;
     height: 30px;

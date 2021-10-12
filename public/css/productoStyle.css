@@ -133,24 +133,6 @@
       text-align:left;
       padding: 10px;
   }
-  /* .button {
-    display: grid;
-    height: 50px;
-    padding: 17px 0 0 0;
-    margin: 0 auto;
-    max-width:250px;
-    background: #4682B4;
-    background: -moz-linear-gradient(top, #87CEEB 0%, #4682B4 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87CEEB), color-stop(100%,#4682B4));
-    box-shadow: inset 0px 0px 6px #fff;
-    -webkit-box-shadow: inset 0px 0px 6px #fff;
-    border: 2px solid #62C2F9;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    color: #3090C7;
-    text-shadow: 0px 1px 2px #62C2F9;
-  } */
   .btn-precio {
     width: 35px;
     height: 30px;
@@ -170,8 +152,8 @@
 .packUnitario {
       border-radius: 8px;
       padding: 1em;   
-      background-color: rgba(22, 231, 109, 0.8);
-      border: 1px solid rgb(47, 238, 9);
+      background-color: rgba(6, 231, 100, 0.596);
+      border: 1px solid rgb(22, 231, 109);
       text-align: center;
       color: black;
       font-weight: bold;    

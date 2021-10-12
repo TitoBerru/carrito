@@ -1,14 +1,19 @@
-*{
-    box-sizing: border-box;
+* {
+    box-sizing: border-box;   
+  }
+  body {
+  font-family: Montserrat-Light,quicksand, sans-serif;
+  font-size: 16px;
+  padding: 1px;
+  background-color: #D3D2BE;
+  background: url(../img/imagenprincipal.jpg); 
+    color:#000000;
+  background-repeat: no-repeat;  
+  background-size: 100vmax;
 }
-
-body { 
-    background: url(../img/imagen-home.jpeg);
-    font-family: quicksand, sans-serif;
-    max-width: 100vw;
-    margin:0px;
-    padding: 0px;
-    text-align: center;
+@font-face {
+    font-family: Montserrat-Light;
+    src: url(/fuentes/Montserrat-Light.ttf) format('truetype');
 }
 /* header */
 .contenedor01{

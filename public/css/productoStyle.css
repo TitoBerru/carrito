@@ -12,6 +12,10 @@
   background-repeat: no-repeat;  
   background-size: 100vmax;
 }
+@font-face {
+    font-family: Montserrat-Light;
+    src: url(/fuentes/Montserrat-Light.ttf) format('truetype');
+}
   /* -------------------HEADER------------------ */
   .contenedor01{
     display: flex;
@@ -41,6 +45,7 @@
     outline:0;
     font-size:18px;
     margin: .5em .8em;
+    font-weight: 600;
     
 }
 
@@ -165,8 +170,8 @@
 .packUnitario {
       border-radius: 8px;
       padding: 1em;   
-      background-color:rgba(136, 151, 2, 0.9);
-      border: 2px solid #000;
+      background-color: rgba(22, 231, 109, 0.8);
+      border: 1px solid rgb(47, 238, 9);
       text-align: center;
       color: black;
       font-weight: bold;    

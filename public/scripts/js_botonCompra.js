@@ -4,8 +4,8 @@ validarCompra = window.addEventListener('load', function () {
     boton.addEventListener('click', function () {
        Swal.fire({
            type: "succes",
-           title: "Muchas Gracias JERO Y JULI!!!!!!!",
-           text: "Esperamos no haberlos vuelto locos!!!!!"
+           title: "¡Muchas Gracias por su compra!",
+           text: "¡Les deseamos una buena vida nueva en su nueva casa!"
        });
 
         let settings = {

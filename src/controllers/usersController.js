@@ -164,7 +164,7 @@ const usersController = {
                 res.send(e)
             })
         if (user.userAdmin == 0) {
-
+            // res.redirect('users/profileUser');
             res.render('users/profileUser', { user });
         }
         res.render('users/profileAdmin', { user })

@@ -163,11 +163,15 @@ const usersController = {
             .catch(function (e) {
                 res.send(e)
             })
-        if (user.userAdmin == 0) {
-            // res.redirect('users/profileUser');
-            res.render('users/profileUser', { user });
-        }
-        res.render('users/profileAdmin', { user })
+        if (user.userAdmin != 0) {
+
+                res.render('users/profileAdmin', { user })
+                
+            }else {
+                res.render('users/profileUser', { user });
+                }
+            
+        
     },
 
 

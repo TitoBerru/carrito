@@ -110,8 +110,8 @@ window.addEventListener('load', function () {                      //con esto le
         else if (!extensionValida.exec(campoImagen.value)) {
             erroresDeRegistro.push("La extension de la imagen debe ser jpg, jpeg, png o gif")
         }
-        else if (campoImagen.files[0].size > 100000) {
-            erroresDeRegistro.push("El peso de la imagen debe ser menor a 100 kb");
+        else if (campoImagen.files[0].size > 9000000) {
+            erroresDeRegistro.push("El peso de la imagen debe ser menor a 1000 kb");
         }
         // console.log(campoImagen.files)
 

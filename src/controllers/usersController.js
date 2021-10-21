@@ -157,6 +157,8 @@ const usersController = {
             where: {
                 id: req.params.id
             }
+            
+            
         }
         )
 

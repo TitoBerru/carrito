@@ -1,12 +1,12 @@
-* {
-    box-sizing: border-box;   
-  }
-  body {
+*{
+    box-sizing:border-box;
+}
+body {
   font-family: Montserrat-Light,quicksand, sans-serif;
   font-size: 16px;
   padding: 1px;
   background-color: #D3D2BE;
-  background: url(../img/imagenprincipal.jpg); 
+  background: url(../img/nuevaImagenFondo.jpeg); 
     color:#000000;
   background-repeat: no-repeat;  
   background-size: 100vmax;
@@ -14,64 +14,6 @@
 @font-face {
     font-family: Montserrat-Light;
     src: url(/fuentes/Montserrat-Light.ttf) format('truetype');
-}
-  /* -------------------HEADER------------------ */
-  .contenedor01{
-    display: flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-content: space-around;
-    gap: 25px;
-    margin: 15px 0;
-    padding: 0 40px 40px 40px;
-}
-.presentacion{
-    display:flex;
-}
-
-.logo{
-    margin-left: 0;
-}
-.botones{
-    align-content: center;
-}
-.sub-boton{
-    position:relative;
-    padding:1em 1.5em;
-    border:none;
-    background-color:transparent;
-    cursor:pointer;
-    outline:0;
-    font-size:18px;
-    margin: .5em .8em;
-    font-weight: 600;
-    
-}
-
-.sub-boton:after,
-.sub-boton:before{
-    content:"";
-    display:block;
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    height:2px;
-    background-color:#16a085;
-    transition:all .3s ease;
-    transform:scale(0.85)
-}
-.sub-boton:hover:before{
-    top:0;
-    transform:scale(1)
-}
-.sub-boton:hover:after{
-    transform:scale(1)
-}
-
-.telefono{
-   color: transparent;
-   align-self:center;
 }
 
 /* ----------------botones ---------------------- */
@@ -151,8 +93,8 @@
 .packUnitario {
       border-radius: 8px;
       padding: 1em;   
-      background-color: rgba(10, 62, 87, 0.6);
-      border: 1px solid rgb(22, 231, 109);
+      background-color: rgba(146, 149, 151, 0.6);
+      border: 1px solid rgb(14, 124, 60);
       text-align: center;
       color: rgb(0, 0, 0);
       font-weight: bold;  
@@ -192,28 +134,6 @@
 /* media querys del main */
 
 @media (max-width: 389px) {
-/* header     */
-.contenedor01{
-  flex-direction: column;
-  justify-content:space-evenly;
-  align-content: center;
-  gap: 1.5em;
-  margin: 15px 0;
-  padding: 0.5em; 
-}
-.sub-boton{
-  color:#000000;
-  font-weight: 800;
-}
-.telefono{
-  font-size: 2em;
-}
-
-.presentacion{
-  flex-direction: column;
-}
-/* termina el header */
-
 .packs {
       grid-template-columns: 1fr;
     }
@@ -223,28 +143,7 @@
 } 
 
 @media (min-width: 360px) and (max-width: 799px){
-  /* header */
-  .contenedor01{
-    flex-direction: column;
-    justify-content:space-evenly;
-    align-content: center;
-    gap: 1.5em;
-    margin: 15px 0;
-    padding: 0.5em; 
-}
-.sub-boton{
-    color:#000000;
-    font-weight: 800;
-}
-.telefono{
-    font-size: 2em;
-}
-
-.presentacion{
-    flex-direction: column;
-}
-  /* terminal el header */
-    .packs {
+ .packs {
         grid-template-columns: repeat(2, 1fr);
         
         }

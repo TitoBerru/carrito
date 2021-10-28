@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const apiSelect = require('../apis/apiSelect');
+const apiSelect = require('./../apis/apiSelect');
 // const ApiConfirmaCompra = require('../Apis/ApiConfirmaCompra');
 
 router.get('/', apiSelect.lista);

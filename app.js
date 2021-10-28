@@ -55,8 +55,8 @@ app.use('/busquedaVenta', APIusuarioProductoRoutes);
 app.use('/busquedaProducto', APIpackRoutes);
 app.use('/ventas', ApiVentas);
 
-app.listen(process.env.PORT || 5000, function () {
-    console.log('\x1b[36m%s\x1b[0m','Servidor corriendo en el puerto 3001');
+app.listen(process.env.PORT || 3000, function () {
+    console.log('\x1b[36m%s\x1b[0m','Servidor corriendo en el puerto 3000');
 });
 
 

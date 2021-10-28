@@ -42,7 +42,7 @@ const ApiSeleccion = require ('./src/routes/ApiSeleccion');
 // const APIusuarioProductoRoutes = require ('./src/routes/APIusuarioProductoRoutes');
 // const APIpackRoutes = require ('./src/routes/APIpackRoutes');
 // const ApiVentas = require('./src/routes/ApiVentasRoutes');
-// const { read } = require('fs');
+const { read } = require('fs');
 
 app.use('/', mainRoutes);
 app.use('/products', productRoutes);

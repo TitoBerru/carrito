@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const APIpack = require('../Apis/APIpack');
+const APIpack = require('../Apis/ApiPack');
 
 router.get('/',APIpack.lista);
 router.get('/:id',APIpack.uno);

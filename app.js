@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(express.urlencoded({ extended: false })); // Necesario para poder obtener la info de los formularios
 app.use(express.json()); // Necesario para trabajar archivos JSON
 app.use(methodOverride('_method')); // necesario para transformar los POST en PUT Y DELETE
-// app.use(logMiddleware); Por ahora no lo vamos a utilizar
+
 
 
 
@@ -69,7 +69,7 @@ app.use('/ventas', ApiVentas);
 
 
 
-app.listen(process.env.PORT || 3001, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('\x1b[36m%s\x1b[0m','Servidor corriendo en el puerto 3001');
 });
 

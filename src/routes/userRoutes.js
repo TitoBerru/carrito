@@ -13,10 +13,6 @@ const validations = require('../../middlewares/validations');
 const multerUsersDiskStorage = require('../../middlewares/multerUsersDiskStorage');
 const guestMiddleware = require('../../middlewares/guestMiddleware');
 const authMiddleware = require('../../middlewares/authMiddleware');
-//const userLoggedMiddleware = require('../../middlewares/userLoggedMiddleware');
-
-// Tratamiento de Imagenes
-
 
 // Multer
 

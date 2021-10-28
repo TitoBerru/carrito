@@ -54,3 +54,28 @@
     height: 8vw;
 }
 }
+@media (min-width: 360px) and (max-width: 700px){
+     /* new footer */
+    .mainFooter{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    } 
+    .sectionThreeFooter{
+   justify-self: center;
+   
+   margin-top: 0;
+   margin-right: 0;
+   font-size: 0.8rem; 
+   }
+   .sectionOneFooter{
+   margin-left: 0px;
+   }
+   .mainFooter img {
+    width: 8vw;
+    height: 8vw;
+    }
+ 
+}

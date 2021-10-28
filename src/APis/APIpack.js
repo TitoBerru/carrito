@@ -4,20 +4,10 @@ const Op = db.Sequelize.Op;
 module.exports = {
 
     lista: (req,res) => {
-
-        // db.Pack.findAll({include:[{association:'servicio_adicional'}]},{
-        //     order: [
-        //         ['numeroPack','ASC']
-                
-        //     ]
-        
-        // })
-        db.Pack.findAll({
+    db.Pack.findAll({
             order: [
-                ['numeroPack','ASC']
-                
+                ['numeroPack','ASC']            
             ]
-        
         })
         .then(pack => {
             return res.send({

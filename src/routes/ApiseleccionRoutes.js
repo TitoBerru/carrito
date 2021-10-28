@@ -7,5 +7,4 @@ router.get('/', ApiSeleccion.lista);
 router.get('/:id', ApiSeleccion.uno);
 router.post('/compra', ApiConfirmaCompra.compra)
 
-
 module.exports = router;

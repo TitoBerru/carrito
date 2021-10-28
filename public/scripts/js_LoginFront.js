@@ -30,9 +30,6 @@ window.addEventListener('load', function () {                      //con esto le
         }
         // console.log(password.value.length)
 
-
-
-
         if (erroresDeAcceso.length > 0) {
             e.preventDefault();      // Si el array de errores no está vacio, evito que se submita el formulario
 

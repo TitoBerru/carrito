@@ -5,7 +5,6 @@ window.addEventListener('load', function () {                      //con esto le
 
         let erroresDeEdicion = [];                                 //aquí acumularé errores de validacion en front
 
-
         // Validacion de Pack//
         let campoPack = document.querySelector('input.numeroPack')
         let expRegPack = /^\d{1,3}$/  // 1 a 3 numeros
@@ -76,9 +75,6 @@ window.addEventListener('load', function () {                      //con esto le
             erroresDeEdicion.push("El peso de la imagen debe ser menor a 200 kb");
         }
         // console.log(campoImgProd.files)
-
-
-
 
         if (erroresDeEdicion.length > 0) {
             e.preventDefault();      // Si el array de errores no está vacio, evito que se submita el formulario

@@ -129,7 +129,7 @@ const usersController = {
 
             })
     },
-    // Sin probar, es lo que armo Hernan  -- Verificar!!!!!!
+
 
     profileActualizar: async (req, res) => {
 
@@ -156,12 +156,10 @@ const usersController = {
         let userUpdated = await db.Usuario.update(userUpdate, {
             where: {
                 id: req.params.id
-            }
-            
+            }          
             
         }
         )
-
             .catch(function (e) {
                 res.send(e)
             })
@@ -171,15 +169,10 @@ const usersController = {
                 
             }else {
                 res.render('users/profileUser', { user });
-                }
-            
+                }          
         
     },
 
-
-
 }
-
-
 
 module.exports = usersController;

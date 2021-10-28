@@ -37,7 +37,7 @@ window.addEventListener('load', function () {                      //con esto le
         //             // Validacion de email//
         let campoEmail = document.querySelector('input.email')
         let expRegMail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-        // /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/   //expresion regular que expresa el formato de emails
+        
         let mailValido = expRegMail.test(campoEmail.value)    //.test es buleano
         if (campoEmail.value == "") {
             erroresDeRegistro.push("Debes ingresar un email")
@@ -52,7 +52,6 @@ window.addEventListener('load', function () {                      //con esto le
         //             // Validacion de Telefono//
         let campoTelefono = document.querySelector('input.telefono')
         let expRegTelefono = /^\d{7,20}$/  //7 a 14 numeros
-        // /^\(? (\ d {3}) \)? [-]? (\ d {4}) [-]? (\ d {4})$/      //alternativa que no funcionó
         let telefonoValido = expRegTelefono.test(campoTelefono.value);
         if (campoTelefono.value == "") {
             erroresDeRegistro.push("Debes ingresar un teléfono con formato 4444-4444")

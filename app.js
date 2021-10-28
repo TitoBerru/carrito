@@ -47,13 +47,13 @@ const userRoutes = require('./src/routes/userRoutes');
 app.use('/', mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
-app.use('/apis', ApiSeleccionRoutes);
-app.use('/seleccion',ApiSeleccionRoutes);
-app.use('/servicio',APIservicioRoutes);
-app.use('/busquedaUsuario', APIusuarioRoutes);
-app.use('/busquedaVenta', APIusuarioProductoRoutes);
-app.use('/busquedaProducto', APIpackRoutes);
-app.use('/ventas', ApiVentas);
+// app.use('/apis', ApiSeleccionRoutes);
+// app.use('/seleccion',ApiSeleccionRoutes);
+// app.use('/servicio',APIservicioRoutes);
+// app.use('/busquedaUsuario', APIusuarioRoutes);
+// app.use('/busquedaVenta', APIusuarioProductoRoutes);
+// app.use('/busquedaProducto', APIpackRoutes);
+// app.use('/ventas', ApiVentas);
 
 app.listen(process.env.PORT || 3001, function () {
     console.log('\x1b[36m%s\x1b[0m','Servidor corriendo en el puerto 3000');

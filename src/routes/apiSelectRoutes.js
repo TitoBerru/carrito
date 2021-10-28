@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const apiSelect = require('../apis/apiSelect');
+const apiSelect = require('../controllers/apiSelect');
 // const ApiConfirmaCompra = require('../Apis/ApiConfirmaCompra');
 
 router.get('/', apiSelect.lista);

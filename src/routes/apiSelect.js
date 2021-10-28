@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const ApiSelect = require('./../Apis/ApiSelect');
+const apiSelect = require('../apis/apiSelect');
 // const ApiConfirmaCompra = require('../Apis/ApiConfirmaCompra');
 
-router.get('/', ApiSelect.lista);
-router.get('/:id', ApiSelect.uno);
+router.get('/', apiSelect.lista);
+router.get('/:id', apiSelect.uno);
 // router.post('/compra', ApiConfirmaCompra.compra)
 
 module.exports = router;

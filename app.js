@@ -36,12 +36,12 @@ const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 
 //**Rutas de APiS */
-const ApiSeleccionRoutes = require ('./src/routes/APISeleccionRoutes');
-const APIservicioRoutes = require ('./src/routes/APIservicioAdicionalRoutes');
-const APIusuarioRoutes = require ('./src/routes/APIusuarioRoutes');
-const APIusuarioProductoRoutes = require ('./src/routes/APIusuarioProductoRoutes');
-const APIpackRoutes = require ('./src/routes/APIpackRoutes');
-const ApiVentas = require('./src/routes/ApiVentasRoutes');
+// const ApiSeleccionRoutes = require ('./src/routes/APISeleccionRoutes');
+// const APIservicioRoutes = require ('./src/routes/APIservicioAdicionalRoutes');
+// const APIusuarioRoutes = require ('./src/routes/APIusuarioRoutes');
+// const APIusuarioProductoRoutes = require ('./src/routes/APIusuarioProductoRoutes');
+// const APIpackRoutes = require ('./src/routes/APIpackRoutes');
+// const ApiVentas = require('./src/routes/ApiVentasRoutes');
 // const { read } = require('fs');
 
 app.use('/', mainRoutes);

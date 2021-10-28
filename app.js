@@ -36,7 +36,7 @@ const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 
 //**Rutas de APiS */
-const ApiSeleccion = require ('./src/routes/apiSeleccion');
+const ApiSelect = require ('./src/routes/apiSelect');
 // const APIservicioRoutes = require ('./src/routes/APIservicioAdicionalRoutes');
 // const APIusuarioRoutes = require ('./src/routes/APIusuarioRoutes');
 // const APIusuarioProductoRoutes = require ('./src/routes/APIusuarioProductoRoutes');
@@ -47,7 +47,7 @@ const { read } = require('fs');
 app.use('/', mainRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
-app.use('/apis', ApiSeleccion);
+app.use('/apis', ApiSelect);
 // app.use('/seleccion',ApiSeleccionRoutes);
 // app.use('/servicio',APIservicioRoutes);
 // app.use('/busquedaUsuario', APIusuarioRoutes);

@@ -26,10 +26,6 @@ app.use(express.urlencoded({ extended: false })); // Necesario para poder obtene
 app.use(express.json()); // Necesario para trabajar archivos JSON
 app.use(methodOverride('_method')); // necesario para transformar los POST en PUT Y DELETE
 
-
-
-
-
 // *** Config de Vistas ***
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
@@ -39,7 +35,6 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 
-
 //**Rutas de APiS */
 const ApiSeleccionRoutes = require ('./src/routes/ApiSeleccionRoutes');
 const APIservicioRoutes = require ('./src/routes/APIservicioAdicionalRoutes');
@@ -48,9 +43,6 @@ const APIusuarioProductoRoutes = require ('./src/routes/APIusuarioProductoRoutes
 const APIpackRoutes = require ('./src/routes/APIpackRoutes');
 const ApiVentas = require('./src/routes/ApiVentasRoutes');
 const { read } = require('fs');
-
-
-
 
 app.use('/', mainRoutes);
 app.use('/products', productRoutes);
@@ -62,12 +54,6 @@ app.use('/busquedaUsuario', APIusuarioRoutes);
 app.use('/busquedaVenta', APIusuarioProductoRoutes);
 app.use('/busquedaProducto', APIpackRoutes);
 app.use('/ventas', ApiVentas);
-
-
-
-
-
-
 
 app.listen(process.env.PORT || 3000, function () {
     console.log('\x1b[36m%s\x1b[0m','Servidor corriendo en el puerto 3001');

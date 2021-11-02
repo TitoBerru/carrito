@@ -307,7 +307,7 @@ label.radio input:checked+span {
     font-size: 11px
 }
 #pack, #traslado, #asistente, #embalaje, #cajas, #cintas, #espuma, #depositoT, #depositoP {
-    display: true;
+    display: none;
 }
 
 /* TERMINA SHOPPING */

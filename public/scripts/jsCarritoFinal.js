@@ -24,7 +24,7 @@ renderizarServicios = window.addEventListener('load', function () {
 
       if (data.data[0].asistente != 1) {
         let asistente = document.querySelector('#asistente');
-        asistente.style.display = "none";
+        asistente.style.display = "TRUE";
       } else {
 
         valorFinalCarrito += valorAsistente;
@@ -32,37 +32,37 @@ renderizarServicios = window.addEventListener('load', function () {
       }
       if (data.data[0].embalaje != 1) {
         let embalaje = document.querySelector('#embalaje');
-        embalaje.style.display = "none";
+        embalaje.style.display = "TRUE";
       } else {
         valorFinalCarrito += valorEmbalaje;
       }
       if (data.data[0].cajas != 1) {
         let cajas = document.querySelector('#cajas');
-        cajas.style.display = "none";
+        cajas.style.display = "TRUE";
       } else {
         valorFinalCarrito += valorCajas;
       }
       if (data.data[0].adhesivo != 1) {
         let cintas = document.querySelector('#cintas');
-        cintas.style.display = "none";
+        cintas.style.display = "TRUE";
       } else {
         valorFinalCarrito += valorCintas;
       }
       if (data.data[0].gomaEspuma != 1) {
         let espuma = document.querySelector('#espuma');
-        espuma.style.display = "none";
+        espuma.style.display = "TRUE";
       } else {
         valorFinalCarrito += valorEspuma;
       }
       if (data.data[0].depositoTemporario != 1) {
         let depositoT = document.querySelector('#depositoT');
-        depositoT.style.display = "none";
+        depositoT.style.display = "TRUE";
       } else {
         valorFinalCarrito += valorDepoT;
       }
       if (data.data[0].depositoPermanente != 1) {
         let depositoP = document.querySelector('#depositoP');
-        depositoP.style.display = "none";
+        depositoP.style.display = "TRUE";
       } else {
         valorFinalCarrito += valorDepoP;
       }

@@ -17,14 +17,14 @@ renderizarServicios = window.addEventListener('load', function () {
 
       if (data.data[0].trasladoDiaFeriado != 1) {
         let traslado = document.querySelector('#traslado');
-        traslado.style.display = "true";
+        traslado.style.display = "none";
       } else {
         valorFinalCarrito += valorTraslado;
       }
 
       if (data.data[0].asistente != 1) {
         let asistente = document.querySelector('#asistente');
-        asistente.style.display = "TRUE";
+        asistente.style.display = "none";
       } else {
 
         valorFinalCarrito += valorAsistente;
@@ -32,37 +32,37 @@ renderizarServicios = window.addEventListener('load', function () {
       }
       if (data.data[0].embalaje != 1) {
         let embalaje = document.querySelector('#embalaje');
-        embalaje.style.display = "TRUE";
+        embalaje.style.display = "none";
       } else {
         valorFinalCarrito += valorEmbalaje;
       }
       if (data.data[0].cajas != 1) {
         let cajas = document.querySelector('#cajas');
-        cajas.style.display = "TRUE";
+        cajas.style.display = "none";
       } else {
         valorFinalCarrito += valorCajas;
       }
       if (data.data[0].adhesivo != 1) {
         let cintas = document.querySelector('#cintas');
-        cintas.style.display = "TRUE";
+        cintas.style.display = "none";
       } else {
         valorFinalCarrito += valorCintas;
       }
       if (data.data[0].gomaEspuma != 1) {
         let espuma = document.querySelector('#espuma');
-        espuma.style.display = "TRUE";
+        espuma.style.display = "none";
       } else {
         valorFinalCarrito += valorEspuma;
       }
       if (data.data[0].depositoTemporario != 1) {
         let depositoT = document.querySelector('#depositoT');
-        depositoT.style.display = "TRUE";
+        depositoT.style.display = "none";
       } else {
         valorFinalCarrito += valorDepoT;
       }
       if (data.data[0].depositoPermanente != 1) {
         let depositoP = document.querySelector('#depositoP');
-        depositoP.style.display = "TRUE";
+        depositoP.style.display = "none";
       } else {
         valorFinalCarrito += valorDepoP;
       }

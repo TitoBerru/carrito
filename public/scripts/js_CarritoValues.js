@@ -62,7 +62,7 @@ validacionesFront = window.addEventListener('load', function () {
             "body": JSON.stringify(serviciosSolicitados)
         }
         // fetch("http://localhost:3000/products/preCompra", settings)
-        fetch("mysql-proyectointegrador.alwaysdata.net/products/preCompra", settings)
+        fetch("https://yotemudobytito.herokuapp.com/products/preCompra", settings)
             .then(function (response) {
                 return response.json()
             })

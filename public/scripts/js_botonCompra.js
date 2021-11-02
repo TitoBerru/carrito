@@ -17,7 +17,7 @@ validarCompra = window.addEventListener('load', function () {
             
         }
         // fetch("http://localhost:3000/products/compra", settings)
-        fetch("mysql-proyectointegrador.alwaysdata.net/products/compra", settings)
+        fetch("https://yotemudobytito.herokuapp.com/products/compra", settings)
             .then(function (response) {
                 return response.json()
             })

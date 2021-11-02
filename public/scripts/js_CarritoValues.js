@@ -61,7 +61,8 @@ validacionesFront = window.addEventListener('load', function () {
             },
             "body": JSON.stringify(serviciosSolicitados)
         }
-        fetch("http://localhost:3000/products/preCompra", settings)
+        // fetch("http://localhost:3000/products/preCompra", settings)
+        fetch("mysql-proyectointegrador.alwaysdata.net/products/preCompra", settings)
             .then(function (response) {
                 return response.json()
             })

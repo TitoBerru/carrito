@@ -10,7 +10,8 @@ renderizarServicios = window.addEventListener('load', function () {
   let valorDepoT = parseInt(document.querySelector('.valorDepoT').innerHTML);
   let valorDepoP = parseInt(document.querySelector('.valorDepoP').innerHTML);
 
-  fetch("http://localhost:3000/apis/")
+  // fetch("http://localhost:3000/apis/")
+  fetch("mysql-proyectointegrador.alwaysdata.net/apis")
     .then(response => response.json())
     .then(function (data) {
 

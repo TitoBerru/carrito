@@ -15,7 +15,7 @@ renderizarServicios = window.addEventListener('load', function () {
     .then(response => response.json())
     .then(function (data) {
 
-      if (data.data[0].trasladoDiaFeriado != 0) {
+      if (data.data[0].trasladoDiaFeriado === 1) {
         let traslado = document.querySelector('#traslado');
         traslado.style.display = "true";
       } else {

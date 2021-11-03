@@ -18,6 +18,7 @@ renderizarServicios = window.addEventListener('load', function () {
       if (data.data[0].trasladoDiaFeriado === 1) {
         let traslado = document.querySelector('#traslado');
         traslado.style.display = "true";
+        console.log(data.data[0].trasladoDiaFeriado)
       } else {
         valorFinalCarrito += valorTraslado;
       }

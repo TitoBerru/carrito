@@ -10,15 +10,15 @@ renderizarServicios = window.addEventListener('load', function () {
   let valorDepoT = parseInt(document.querySelector('.valorDepoT').innerHTML);
   let valorDepoP = parseInt(document.querySelector('.valorDepoP').innerHTML);
 
-  // fetch("http://localhost:3000/apis/")
-  fetch("https://yotemudobytito.herokuapp.com/apis")
+  fetch("http://localhost:3000/apis/")
+  // fetch("https://yotemudobytito.herokuapp.com/apis")
     .then(response => response.json())
     .then(function (data) {
-
-      if (data.data[0].trasladoDiaFeriado === 1) {
+      // console.log("el console log del fetch para activar el display de traslado dia feriado llega en " + data.data)
+      if (data.data[0].trasladoDiaFeriado != 1) {
         let traslado = document.querySelector('#traslado');
-        traslado.style.display = "true";
-        console.log(data.data[0].trasladoDiaFeriado)
+        traslado.style.display = "none";
+        console.log("el console log del fetch para activar el display de traslado dia feriado llega en " + data.data[0].trasladoDiaFeriado)
       } else {
         valorFinalCarrito += valorTraslado;
       }

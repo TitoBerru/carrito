@@ -306,8 +306,36 @@ label.radio input:checked+span {
 .spec {
     font-size: 11px
 }
-#pack, #traslado, #asistente, #embalaje, #cajas, #cintas, #espuma, #depositoT, #depositoP {
-    display: "none";
+#traslado {
+    display: "true";
+}
+
+#asistente{
+    display: "true";
+}
+
+#embalaje{
+    display: "true";
+}
+
+#cajas{
+    display: "true";
+}
+
+#cintas{
+    display: "true";
+}
+
+#espuma{
+    display: "true";
+}
+
+#depositoT{
+    display: "true";
+}
+
+#depositoP {
+    display: "true";
 }
 
 /* TERMINA SHOPPING */

@@ -10,8 +10,8 @@ renderizarServicios = window.addEventListener('load', function () {
   let valorDepoT = parseInt(document.querySelector('.valorDepoT').innerHTML);
   let valorDepoP = parseInt(document.querySelector('.valorDepoP').innerHTML);
 
-  fetch("http://localhost:3000/apis/")
-  // fetch("https://yotemudobytito.herokuapp.com/apis")
+  // fetch("http://localhost:3000/apis/")
+  fetch("https://yotemudobytito.herokuapp.com/apis")
     .then(response => response.json())
     .then(function (data) {
       // console.log("el console log del fetch para activar el display de traslado dia feriado llega en " + data.data)
